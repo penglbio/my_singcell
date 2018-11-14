@@ -6,10 +6,12 @@ reads={}
 for line in open(sys.argv[1]).readlines():
 	index+=1
 	reads[index]=line
-	gene=line.split()[9]
+	gene=line.split()[10]
 	maf[index]=gene
 READS_KEEP_INX=open(sys.argv[3], "w")
+
 UBC_UMI_GENE=open(sys.argv[4], "w")
+
 UBC_UMI_GENE_INX=open(sys.argv[5], "w")
 
 for umi_c in open(sys.argv[2]).readlines():

@@ -9,5 +9,5 @@ for record in SeqIO.parse(open(sys.argv[2]), "fastq"):
 			count +=1
 			if(count>1):
 				break
-	if(count<=1):
+	if(count<1):
 		SeqIO.write(record, UMI, "fastq")	
