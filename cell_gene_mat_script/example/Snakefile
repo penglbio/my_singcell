@@ -1,0 +1,165 @@
+configfile: "config.yaml"
+
+rule all:
+	input:
+		'fastqc/R1_fastqc.html',
+		'fastqc/R2_fastqc.html',	
+		#'stat/fastqc_stat.tsv',
+		#expand('step1/R2.part_{part}.fastq'.format(part=str(x).zfill(3)) for x in range(1,config['split_part'])),
+		expand('step2/R2.part_{part}.fastq'.format(part=str(x).zfill(3)) for x in range(1,config['split_part'])),
+		expand('step3/R2.part_{part}.fastq'.format(part=str(x).zfill(3)) for x in range(1,config['split_part'])),
+		'step4/all_clean_bar_umi.fq',
+		'step4/whitelist.txt',
+		'step5/R1_clean.fastq',
+		'step6/read_to_gene.tsv',
+		'step7/cell_gene_mat.tsv'
+		
+
+rule fastqc_raw:
+	input:
+		config['path']+'/R1.fastq',
+		config['path']+'/R2.fastq'
+	output:
+		'fastqc/R1_fastqc.html',
+		'fastqc/R2_fastqc.html'
+	params:
+		conda = config['conda_path']
+	shell:
+		'{params.conda}/fastqc -t 2 -o fastqc {input};'
+
+rule clean_last6:
+	input:
+		i1=config['path']+'/R2/R2.part_{part}.fastq',
+		i2=config['barcode']
+	output:
+		'step1/R2.part_{part}.fastq'
+	shell:
+		'grep -v '>' {input.i2}|cut -c 3-8|seqkit grep -s -f -  -R -6:-1  {input.i1} > {output}'	
+
+rule clean_UMI:
+	input:
+		#'step1/R2.part_{part}.fastq'
+		config['path']+'/R2/R2.part_{part}.fastq'
+	output:
+		'step2/R2.part_{part}.fastq'
+	params:
+                conda=config['conda_path']
+	shell:
+		'{params.conda}/python script/1.check_QC_UMI.py {output} {input}'
+
+rule clean_barcode:
+	input:
+		r1=config['barcode'],
+		r2='step2/R2.part_{part}.fastq'
+	output:
+		'step3/R2.part_{part}.fastq'
+	params:
+                conda=config['conda_path']
+
+	shell:
+		'{params.conda}/python script/2.check_QC_barcode.py {input.r1} {input.r2} {output}'
+
+rule UBC_sel:
+	input:
+		['step3/R2.part_{part}.fastq'.format(part=str(x).zfill(3)) for x in range(1,config['split_part'])]	
+	output:
+		o1='step4/all_clean_bar_umi.fq',
+		o2='step4/whitelist.txt'
+	params:
+		cn=config['cell_num'],
+		conda = config['conda_path']
+			
+	shell:
+		'cat step3/* >{output.o1};{params.conda}/umi_tools whitelist --stdin step4/all_clean_bar_umi.fq --plot-prefix step4/cell_sel --subset-reads 3000000000 --timeit umi_cell_time --bc-pattern=NNNNNNNNNNCCCCCCCCCCCCCCCCCCCCCCCC --set-cell-number={params.cn} --log2stderr > {output.o2}'
+
+rule R1_clean_cell_selected:
+	input:
+		 i1='step4/whitelist.txt',
+		 i2='step4/all_clean_bar_umi.fq',
+		 i3=config['path']+'/R1/R1.part_{part}.fastq'
+	output:
+		'step5/R1.part_{part}.fastq'
+	params:
+                conda = config['conda_path']
+
+	shell:
+		 '{params.conda}/python script/3.extract_R1_base_selcell_and_clean_R2.py {input.i1} {input.i2} {input.i3} {output}'
+
+rule merge_part_R1:
+	input:
+		['step5/R1.part_{part}.fastq'.format(part=str(x).zfill(3)) for x in range(1,config['split_part'])]
+	output:
+		'step5/R1_extract_ubc.fastq'	
+	shell:
+		'cat step5/* > step5/R1_extract_ubc.fastq'	
+
+rule trimmomatic:
+	input:
+		'step5/R1_extract_ubc.fastq'	
+	output:	
+		'step5/R1_extract_ubc_clean.fastq'	
+	params:
+		adapter = config['adapter'],
+		conda = config['conda_path']
+	shell:
+		'{params.conda}/trimmomatic SE -threads 30 -phred33 {input} {output}  ILLUMINACLIP:{params.adapter}:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36'
+
+rule cutadapter:
+	input:
+		'step5/R1_extract_ubc_clean.fastq'
+	output:
+		o1='step5/R1_clean.fastq',
+		o2='step5/R1_clean.cutadapter.log'
+	params:
+		conda = config['conda_path']
+	shell:
+		'{params.conda}/cutadapt -a "NNNNNNNNCGAATGCTCTGGCCT;max_error_rate=0.1;min_overlap=23" -a "AAAAAAAA;min_overlap=6;" -a "CGAATGCTCTGGCCT;max_error_rate=0.1" --minimum-length 36 {input} -o {output.o1} -j 30 1> {output.o2}'
+
+rule STAR:
+	input:
+		'step5/R1_clean.fastq'
+	output:
+		'step6/map_Aligned.sortedByCoord.out.bam'
+	params:
+		idx=config['index'],
+		conda=config['conda_path']
+	shell:
+		'{params.conda}/STAR --runThreadN 30 --outFilterMismatchNmax 2  --genomeDir {params.idx} --readFilesIn {input} --outFileNamePrefix {output} --outSAMtype BAM SortedByCoordinate'
+
+rule select_primary_to_bed:
+	input:
+		'step6/map_Aligned.sortedByCoord.out.bam'
+	output:
+		'step6/map_primary.bam'	
+	params:
+                conda = config['conda_path']
+	shell:
+		'{params.conda}/samtools view -@ 30 -F 256 -h {input} -b > {output}'
+
+rule Tag_gene:
+	input:
+		'step6/map_primary.bam'
+	output:
+		o1='step6/Tag.bam',
+		o2='step6/Tag_Reads_gene.tsv',
+		o3='step6/read_to_gene.tsv'
+	params:
+		anno=config['gtf']
+	shell:
+		'sh script/geneRead_bam_to_tsv.sh {input} {output.o1} {output.o2} {params} {output.o3}'
+
+rule cell_gene_mat:
+	input:
+		'step6/read_to_gene.tsv'
+	output:
+		o1='step7/UMI+UBC_seq',
+		o2='step7/UMI_UBC_seq_cluster',
+		o3='step7/UMI_UBC_gene.tsv',
+		o4='step7/UMI_UBC_gene1',
+		o5='step7/UMI_UBC_gene2',
+		o6='step7/cell_gene_count.tsv',
+		o7='step7/cell_gene_mat.tsv'
+	params:
+		config['barcode']
+	shell:
+		'sh script/GeneRead_to_mat.sh {input} {output.o1} {output.o2} {output.o3} {output.o4} {output.o5} {output.o6} {output.o7} {params}'
