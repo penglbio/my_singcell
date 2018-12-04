@@ -1,0 +1,1655 @@
+Building DAG of jobs...
+Error: Directory cannot be locked. Please make sure that no other Snakemake process is trying to create the same files in the following directory:
+/cluster/home/lpeng/projects/5.JSK_SC_20181113/Snakepipe
+If you are sure that no other instances of snakemake are running on this directory, the remaining lock was likely caused by a kill signal or a power loss. It can be removed with the --unlock argument.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	100	R1_clean_cell_selected
+	1	STAR
+	1	Tag_gene
+	1	UBC_sel
+	1	all
+	1	cell_gene_mat
+	1	cutadapter
+	1	merge_part_R1
+	1	plot
+	1	select_primary_to_bed
+	1	stat
+	1	trimmomatic
+	111
+
+[Mon Dec  3 12:24:35 2018]
+rule UBC_sel:
+    input: step3/R2.part_001.fastq, step3/R2.part_002.fastq, step3/R2.part_003.fastq, step3/R2.part_004.fastq, step3/R2.part_005.fastq, step3/R2.part_006.fastq, step3/R2.part_007.fastq, step3/R2.part_008.fastq, step3/R2.part_009.fastq, step3/R2.part_010.fastq, step3/R2.part_011.fastq, step3/R2.part_012.fastq, step3/R2.part_013.fastq, step3/R2.part_014.fastq, step3/R2.part_015.fastq, step3/R2.part_016.fastq, step3/R2.part_017.fastq, step3/R2.part_018.fastq, step3/R2.part_019.fastq, step3/R2.part_020.fastq, step3/R2.part_021.fastq, step3/R2.part_022.fastq, step3/R2.part_023.fastq, step3/R2.part_024.fastq, step3/R2.part_025.fastq, step3/R2.part_026.fastq, step3/R2.part_027.fastq, step3/R2.part_028.fastq, step3/R2.part_029.fastq, step3/R2.part_030.fastq, step3/R2.part_031.fastq, step3/R2.part_032.fastq, step3/R2.part_033.fastq, step3/R2.part_034.fastq, step3/R2.part_035.fastq, step3/R2.part_036.fastq, step3/R2.part_037.fastq, step3/R2.part_038.fastq, step3/R2.part_039.fastq, step3/R2.part_040.fastq, step3/R2.part_041.fastq, step3/R2.part_042.fastq, step3/R2.part_043.fastq, step3/R2.part_044.fastq, step3/R2.part_045.fastq, step3/R2.part_046.fastq, step3/R2.part_047.fastq, step3/R2.part_048.fastq, step3/R2.part_049.fastq, step3/R2.part_050.fastq, step3/R2.part_051.fastq, step3/R2.part_052.fastq, step3/R2.part_053.fastq, step3/R2.part_054.fastq, step3/R2.part_055.fastq, step3/R2.part_056.fastq, step3/R2.part_057.fastq, step3/R2.part_058.fastq, step3/R2.part_059.fastq, step3/R2.part_060.fastq, step3/R2.part_061.fastq, step3/R2.part_062.fastq, step3/R2.part_063.fastq, step3/R2.part_064.fastq, step3/R2.part_065.fastq, step3/R2.part_066.fastq, step3/R2.part_067.fastq, step3/R2.part_068.fastq, step3/R2.part_069.fastq, step3/R2.part_070.fastq, step3/R2.part_071.fastq, step3/R2.part_072.fastq, step3/R2.part_073.fastq, step3/R2.part_074.fastq, step3/R2.part_075.fastq, step3/R2.part_076.fastq, step3/R2.part_077.fastq, step3/R2.part_078.fastq, step3/R2.part_079.fastq, step3/R2.part_080.fastq, step3/R2.part_081.fastq, step3/R2.part_082.fastq, step3/R2.part_083.fastq, step3/R2.part_084.fastq, step3/R2.part_085.fastq, step3/R2.part_086.fastq, step3/R2.part_087.fastq, step3/R2.part_088.fastq, step3/R2.part_089.fastq, step3/R2.part_090.fastq, step3/R2.part_091.fastq, step3/R2.part_092.fastq, step3/R2.part_093.fastq, step3/R2.part_094.fastq, step3/R2.part_095.fastq, step3/R2.part_096.fastq, step3/R2.part_097.fastq, step3/R2.part_098.fastq, step3/R2.part_099.fastq, step3/R2.part_100.fastq
+    output: step4/R2_clean.fastq, step4/whitelist.txt
+    jobid: 83
+    reason: Missing output files: step4/whitelist.txt, step4/R2_clean.fastq
+
+cat step3/* >step4/R2_clean.fastq;/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/umi_tools step4/whitelist.txt --stdin step4/R2_clean.fastq --plot-prefix step4/cell_sel --subset-reads 3000000000 --timeit step4/umi_cell_time --bc-pattern=NNNNNNNNNNCCCCCCCCCCCCCCCCCCCCCCCC --set-cell-number=2200 --log2stderr > step4/whitelist.txt
+Submitted job 83 with external jobid '49566.head1'.
+[Mon Dec  3 12:25:05 2018]
+Error in rule UBC_sel:
+    jobid: 83
+    output: step4/R2_clean.fastq, step4/whitelist.txt
+    cluster_jobid: 49566.head1
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /cluster/home/lpeng/projects/5.JSK_SC_20181113/Snakepipe/.snakemake/log/2018-12-03T122432.840706.snakemake.log
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	100	R1_clean_cell_selected
+	1	STAR
+	1	Tag_gene
+	1	UBC_sel
+	1	all
+	1	cell_gene_mat
+	1	cutadapter
+	1	merge_part_R1
+	1	plot
+	1	select_primary_to_bed
+	1	stat
+	1	trimmomatic
+	111
+
+[Mon Dec  3 12:43:29 2018]
+rule UBC_sel:
+    input: step3/R2.part_001.fastq, step3/R2.part_002.fastq, step3/R2.part_003.fastq, step3/R2.part_004.fastq, step3/R2.part_005.fastq, step3/R2.part_006.fastq, step3/R2.part_007.fastq, step3/R2.part_008.fastq, step3/R2.part_009.fastq, step3/R2.part_010.fastq, step3/R2.part_011.fastq, step3/R2.part_012.fastq, step3/R2.part_013.fastq, step3/R2.part_014.fastq, step3/R2.part_015.fastq, step3/R2.part_016.fastq, step3/R2.part_017.fastq, step3/R2.part_018.fastq, step3/R2.part_019.fastq, step3/R2.part_020.fastq, step3/R2.part_021.fastq, step3/R2.part_022.fastq, step3/R2.part_023.fastq, step3/R2.part_024.fastq, step3/R2.part_025.fastq, step3/R2.part_026.fastq, step3/R2.part_027.fastq, step3/R2.part_028.fastq, step3/R2.part_029.fastq, step3/R2.part_030.fastq, step3/R2.part_031.fastq, step3/R2.part_032.fastq, step3/R2.part_033.fastq, step3/R2.part_034.fastq, step3/R2.part_035.fastq, step3/R2.part_036.fastq, step3/R2.part_037.fastq, step3/R2.part_038.fastq, step3/R2.part_039.fastq, step3/R2.part_040.fastq, step3/R2.part_041.fastq, step3/R2.part_042.fastq, step3/R2.part_043.fastq, step3/R2.part_044.fastq, step3/R2.part_045.fastq, step3/R2.part_046.fastq, step3/R2.part_047.fastq, step3/R2.part_048.fastq, step3/R2.part_049.fastq, step3/R2.part_050.fastq, step3/R2.part_051.fastq, step3/R2.part_052.fastq, step3/R2.part_053.fastq, step3/R2.part_054.fastq, step3/R2.part_055.fastq, step3/R2.part_056.fastq, step3/R2.part_057.fastq, step3/R2.part_058.fastq, step3/R2.part_059.fastq, step3/R2.part_060.fastq, step3/R2.part_061.fastq, step3/R2.part_062.fastq, step3/R2.part_063.fastq, step3/R2.part_064.fastq, step3/R2.part_065.fastq, step3/R2.part_066.fastq, step3/R2.part_067.fastq, step3/R2.part_068.fastq, step3/R2.part_069.fastq, step3/R2.part_070.fastq, step3/R2.part_071.fastq, step3/R2.part_072.fastq, step3/R2.part_073.fastq, step3/R2.part_074.fastq, step3/R2.part_075.fastq, step3/R2.part_076.fastq, step3/R2.part_077.fastq, step3/R2.part_078.fastq, step3/R2.part_079.fastq, step3/R2.part_080.fastq, step3/R2.part_081.fastq, step3/R2.part_082.fastq, step3/R2.part_083.fastq, step3/R2.part_084.fastq, step3/R2.part_085.fastq, step3/R2.part_086.fastq, step3/R2.part_087.fastq, step3/R2.part_088.fastq, step3/R2.part_089.fastq, step3/R2.part_090.fastq, step3/R2.part_091.fastq, step3/R2.part_092.fastq, step3/R2.part_093.fastq, step3/R2.part_094.fastq, step3/R2.part_095.fastq, step3/R2.part_096.fastq, step3/R2.part_097.fastq, step3/R2.part_098.fastq, step3/R2.part_099.fastq, step3/R2.part_100.fastq
+    output: step4/R2_clean.fastq, step4/whitelist.txt
+    jobid: 198
+    reason: Missing output files: step4/R2_clean.fastq, step4/whitelist.txt
+
+cat step3/* >step4/R2_clean.fastq;/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/umi_tools whitelist --stdin step4/R2_clean.fastq --plot-prefix step4/cell_sel --subset-reads 3000000000 --timeit step4/umi_cell_time --bc-pattern=NNNNNNNNNNCCCCCCCCCCCCCCCCCCCCCCCC --set-cell-number=2200 --log2stderr > step4/whitelist.txt
+Submitted job 198 with external jobid '49667.head1'.
+[Mon Dec  3 12:44:09 2018]
+Error in rule UBC_sel:
+    jobid: 198
+    output: step4/R2_clean.fastq, step4/whitelist.txt
+    cluster_jobid: 49667.head1
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /cluster/home/lpeng/projects/5.JSK_SC_20181113/Snakepipe/.snakemake/log/2018-12-03T124327.890452.snakemake.log
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	100	R1_clean_cell_selected
+	1	STAR
+	1	Tag_gene
+	1	UBC_sel
+	1	all
+	1	cell_gene_mat
+	1	cutadapter
+	1	merge_part_R1
+	1	plot
+	1	select_primary_to_bed
+	1	stat
+	1	trimmomatic
+	111
+
+[Mon Dec  3 13:07:03 2018]
+rule UBC_sel:
+    input: step3/R2.part_001.fastq, step3/R2.part_002.fastq, step3/R2.part_003.fastq, step3/R2.part_004.fastq, step3/R2.part_005.fastq, step3/R2.part_006.fastq, step3/R2.part_007.fastq, step3/R2.part_008.fastq, step3/R2.part_009.fastq, step3/R2.part_010.fastq, step3/R2.part_011.fastq, step3/R2.part_012.fastq, step3/R2.part_013.fastq, step3/R2.part_014.fastq, step3/R2.part_015.fastq, step3/R2.part_016.fastq, step3/R2.part_017.fastq, step3/R2.part_018.fastq, step3/R2.part_019.fastq, step3/R2.part_020.fastq, step3/R2.part_021.fastq, step3/R2.part_022.fastq, step3/R2.part_023.fastq, step3/R2.part_024.fastq, step3/R2.part_025.fastq, step3/R2.part_026.fastq, step3/R2.part_027.fastq, step3/R2.part_028.fastq, step3/R2.part_029.fastq, step3/R2.part_030.fastq, step3/R2.part_031.fastq, step3/R2.part_032.fastq, step3/R2.part_033.fastq, step3/R2.part_034.fastq, step3/R2.part_035.fastq, step3/R2.part_036.fastq, step3/R2.part_037.fastq, step3/R2.part_038.fastq, step3/R2.part_039.fastq, step3/R2.part_040.fastq, step3/R2.part_041.fastq, step3/R2.part_042.fastq, step3/R2.part_043.fastq, step3/R2.part_044.fastq, step3/R2.part_045.fastq, step3/R2.part_046.fastq, step3/R2.part_047.fastq, step3/R2.part_048.fastq, step3/R2.part_049.fastq, step3/R2.part_050.fastq, step3/R2.part_051.fastq, step3/R2.part_052.fastq, step3/R2.part_053.fastq, step3/R2.part_054.fastq, step3/R2.part_055.fastq, step3/R2.part_056.fastq, step3/R2.part_057.fastq, step3/R2.part_058.fastq, step3/R2.part_059.fastq, step3/R2.part_060.fastq, step3/R2.part_061.fastq, step3/R2.part_062.fastq, step3/R2.part_063.fastq, step3/R2.part_064.fastq, step3/R2.part_065.fastq, step3/R2.part_066.fastq, step3/R2.part_067.fastq, step3/R2.part_068.fastq, step3/R2.part_069.fastq, step3/R2.part_070.fastq, step3/R2.part_071.fastq, step3/R2.part_072.fastq, step3/R2.part_073.fastq, step3/R2.part_074.fastq, step3/R2.part_075.fastq, step3/R2.part_076.fastq, step3/R2.part_077.fastq, step3/R2.part_078.fastq, step3/R2.part_079.fastq, step3/R2.part_080.fastq, step3/R2.part_081.fastq, step3/R2.part_082.fastq, step3/R2.part_083.fastq, step3/R2.part_084.fastq, step3/R2.part_085.fastq, step3/R2.part_086.fastq, step3/R2.part_087.fastq, step3/R2.part_088.fastq, step3/R2.part_089.fastq, step3/R2.part_090.fastq, step3/R2.part_091.fastq, step3/R2.part_092.fastq, step3/R2.part_093.fastq, step3/R2.part_094.fastq, step3/R2.part_095.fastq, step3/R2.part_096.fastq, step3/R2.part_097.fastq, step3/R2.part_098.fastq, step3/R2.part_099.fastq, step3/R2.part_100.fastq
+    output: step4/R2_clean.fastq, step4/whitelist.txt
+    jobid: 89
+    reason: Missing output files: step4/whitelist.txt
+
+cat step3/* >step4/R2_clean.fastq;/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/umi_tools whitelist --stdin step4/R2_clean.fastq --plot-prefix step4/cell_sel --subset-reads 3000000000 --timeit step4/umi_cell_time --bc-pattern=NNNNNNNNNNCCCCCCCCCCCCCCCCCCCCCCCC --set-cell-number=2200 --log2stderr > step4/whitelist.txt
+Submitted job 89 with external jobid '49668.head1'.
+[Mon Dec  3 13:07:23 2018]
+Error in rule UBC_sel:
+    jobid: 89
+    output: step4/R2_clean.fastq, step4/whitelist.txt
+    cluster_jobid: 49668.head1
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /cluster/home/lpeng/projects/5.JSK_SC_20181113/Snakepipe/.snakemake/log/2018-12-03T130700.241377.snakemake.log
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	100	R1_clean_cell_selected
+	1	STAR
+	1	Tag_gene
+	1	all
+	1	cell_gene_mat
+	1	cutadapter
+	1	merge_part_R1
+	1	plot
+	1	select_primary_to_bed
+	1	stat
+	1	trimmomatic
+	110
+
+[Mon Dec  3 13:45:47 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_040.fastq, raw_data/R1/R1.part_040.fastq
+    output: step5/R1.part_040.fastq
+    jobid: 217
+    reason: Missing output files: step5/R1.part_040.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=040
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_040.fastq raw_data/R1/R1.part_040.fastq step5/R1.part_040.fastq
+Submitted job 217 with external jobid '49669.head1'.
+
+[Mon Dec  3 13:45:47 2018]
+rule stat:
+    input: raw_data/R1.fastq, step2/R2.part_001.fastq, step2/R2.part_002.fastq, step2/R2.part_003.fastq, step2/R2.part_004.fastq, step2/R2.part_005.fastq, step2/R2.part_006.fastq, step2/R2.part_007.fastq, step2/R2.part_008.fastq, step2/R2.part_009.fastq, step2/R2.part_010.fastq, step2/R2.part_011.fastq, step2/R2.part_012.fastq, step2/R2.part_013.fastq, step2/R2.part_014.fastq, step2/R2.part_015.fastq, step2/R2.part_016.fastq, step2/R2.part_017.fastq, step2/R2.part_018.fastq, step2/R2.part_019.fastq, step2/R2.part_020.fastq, step2/R2.part_021.fastq, step2/R2.part_022.fastq, step2/R2.part_023.fastq, step2/R2.part_024.fastq, step2/R2.part_025.fastq, step2/R2.part_026.fastq, step2/R2.part_027.fastq, step2/R2.part_028.fastq, step2/R2.part_029.fastq, step2/R2.part_030.fastq, step2/R2.part_031.fastq, step2/R2.part_032.fastq, step2/R2.part_033.fastq, step2/R2.part_034.fastq, step2/R2.part_035.fastq, step2/R2.part_036.fastq, step2/R2.part_037.fastq, step2/R2.part_038.fastq, step2/R2.part_039.fastq, step2/R2.part_040.fastq, step2/R2.part_041.fastq, step2/R2.part_042.fastq, step2/R2.part_043.fastq, step2/R2.part_044.fastq, step2/R2.part_045.fastq, step2/R2.part_046.fastq, step2/R2.part_047.fastq, step2/R2.part_048.fastq, step2/R2.part_049.fastq, step2/R2.part_050.fastq, step2/R2.part_051.fastq, step2/R2.part_052.fastq, step2/R2.part_053.fastq, step2/R2.part_054.fastq, step2/R2.part_055.fastq, step2/R2.part_056.fastq, step2/R2.part_057.fastq, step2/R2.part_058.fastq, step2/R2.part_059.fastq, step2/R2.part_060.fastq, step2/R2.part_061.fastq, step2/R2.part_062.fastq, step2/R2.part_063.fastq, step2/R2.part_064.fastq, step2/R2.part_065.fastq, step2/R2.part_066.fastq, step2/R2.part_067.fastq, step2/R2.part_068.fastq, step2/R2.part_069.fastq, step2/R2.part_070.fastq, step2/R2.part_071.fastq, step2/R2.part_072.fastq, step2/R2.part_073.fastq, step2/R2.part_074.fastq, step2/R2.part_075.fastq, step2/R2.part_076.fastq, step2/R2.part_077.fastq, step2/R2.part_078.fastq, step2/R2.part_079.fastq, step2/R2.part_080.fastq, step2/R2.part_081.fastq, step2/R2.part_082.fastq, step2/R2.part_083.fastq, step2/R2.part_084.fastq, step2/R2.part_085.fastq, step2/R2.part_086.fastq, step2/R2.part_087.fastq, step2/R2.part_088.fastq, step2/R2.part_089.fastq, step2/R2.part_090.fastq, step2/R2.part_091.fastq, step2/R2.part_092.fastq, step2/R2.part_093.fastq, step2/R2.part_094.fastq, step2/R2.part_095.fastq, step2/R2.part_096.fastq, step2/R2.part_097.fastq, step2/R2.part_098.fastq, step2/R2.part_099.fastq, step2/R2.part_100.fastq, step3/R2.part_001.fastq, step3/R2.part_002.fastq, step3/R2.part_003.fastq, step3/R2.part_004.fastq, step3/R2.part_005.fastq, step3/R2.part_006.fastq, step3/R2.part_007.fastq, step3/R2.part_008.fastq, step3/R2.part_009.fastq, step3/R2.part_010.fastq, step3/R2.part_011.fastq, step3/R2.part_012.fastq, step3/R2.part_013.fastq, step3/R2.part_014.fastq, step3/R2.part_015.fastq, step3/R2.part_016.fastq, step3/R2.part_017.fastq, step3/R2.part_018.fastq, step3/R2.part_019.fastq, step3/R2.part_020.fastq, step3/R2.part_021.fastq, step3/R2.part_022.fastq, step3/R2.part_023.fastq, step3/R2.part_024.fastq, step3/R2.part_025.fastq, step3/R2.part_026.fastq, step3/R2.part_027.fastq, step3/R2.part_028.fastq, step3/R2.part_029.fastq, step3/R2.part_030.fastq, step3/R2.part_031.fastq, step3/R2.part_032.fastq, step3/R2.part_033.fastq, step3/R2.part_034.fastq, step3/R2.part_035.fastq, step3/R2.part_036.fastq, step3/R2.part_037.fastq, step3/R2.part_038.fastq, step3/R2.part_039.fastq, step3/R2.part_040.fastq, step3/R2.part_041.fastq, step3/R2.part_042.fastq, step3/R2.part_043.fastq, step3/R2.part_044.fastq, step3/R2.part_045.fastq, step3/R2.part_046.fastq, step3/R2.part_047.fastq, step3/R2.part_048.fastq, step3/R2.part_049.fastq, step3/R2.part_050.fastq, step3/R2.part_051.fastq, step3/R2.part_052.fastq, step3/R2.part_053.fastq, step3/R2.part_054.fastq, step3/R2.part_055.fastq, step3/R2.part_056.fastq, step3/R2.part_057.fastq, step3/R2.part_058.fastq, step3/R2.part_059.fastq, step3/R2.part_060.fastq, step3/R2.part_061.fastq, step3/R2.part_062.fastq, step3/R2.part_063.fastq, step3/R2.part_064.fastq, step3/R2.part_065.fastq, step3/R2.part_066.fastq, step3/R2.part_067.fastq, step3/R2.part_068.fastq, step3/R2.part_069.fastq, step3/R2.part_070.fastq, step3/R2.part_071.fastq, step3/R2.part_072.fastq, step3/R2.part_073.fastq, step3/R2.part_074.fastq, step3/R2.part_075.fastq, step3/R2.part_076.fastq, step3/R2.part_077.fastq, step3/R2.part_078.fastq, step3/R2.part_079.fastq, step3/R2.part_080.fastq, step3/R2.part_081.fastq, step3/R2.part_082.fastq, step3/R2.part_083.fastq, step3/R2.part_084.fastq, step3/R2.part_085.fastq, step3/R2.part_086.fastq, step3/R2.part_087.fastq, step3/R2.part_088.fastq, step3/R2.part_089.fastq, step3/R2.part_090.fastq, step3/R2.part_091.fastq, step3/R2.part_092.fastq, step3/R2.part_093.fastq, step3/R2.part_094.fastq, step3/R2.part_095.fastq, step3/R2.part_096.fastq, step3/R2.part_097.fastq, step3/R2.part_098.fastq, step3/R2.part_099.fastq, step3/R2.part_100.fastq, step4/R2_clean.fastq
+    output: stat/stat_anno.tsv
+    jobid: 239
+    reason: Updated input files: step4/R2_clean.fastq
+
+sh script/stat.sh raw_data/R1.fastq step4/R2_clean.fastq
+Submitted job 239 with external jobid '49670.head1'.
+
+[Mon Dec  3 13:45:47 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_056.fastq, raw_data/R1/R1.part_056.fastq
+    output: step5/R1.part_056.fastq
+    jobid: 260
+    reason: Missing output files: step5/R1.part_056.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=056
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_056.fastq raw_data/R1/R1.part_056.fastq step5/R1.part_056.fastq
+Submitted job 260 with external jobid '49671.head1'.
+
+[Mon Dec  3 13:45:47 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_009.fastq, raw_data/R1/R1.part_009.fastq
+    output: step5/R1.part_009.fastq
+    jobid: 72
+    reason: Missing output files: step5/R1.part_009.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=009
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_009.fastq raw_data/R1/R1.part_009.fastq step5/R1.part_009.fastq
+Submitted job 72 with external jobid '49672.head1'.
+
+[Mon Dec  3 13:45:47 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_033.fastq, raw_data/R1/R1.part_033.fastq
+    output: step5/R1.part_033.fastq
+    jobid: 74
+    reason: Missing output files: step5/R1.part_033.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=033
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_033.fastq raw_data/R1/R1.part_033.fastq step5/R1.part_033.fastq
+Submitted job 74 with external jobid '49673.head1'.
+
+[Mon Dec  3 13:45:47 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_043.fastq, raw_data/R1/R1.part_043.fastq
+    output: step5/R1.part_043.fastq
+    jobid: 70
+    reason: Missing output files: step5/R1.part_043.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=043
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_043.fastq raw_data/R1/R1.part_043.fastq step5/R1.part_043.fastq
+Submitted job 70 with external jobid '49674.head1'.
+
+[Mon Dec  3 13:45:47 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_078.fastq, raw_data/R1/R1.part_078.fastq
+    output: step5/R1.part_078.fastq
+    jobid: 135
+    reason: Missing output files: step5/R1.part_078.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=078
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_078.fastq raw_data/R1/R1.part_078.fastq step5/R1.part_078.fastq
+Submitted job 135 with external jobid '49675.head1'.
+
+[Mon Dec  3 13:45:47 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_035.fastq, raw_data/R1/R1.part_035.fastq
+    output: step5/R1.part_035.fastq
+    jobid: 99
+    reason: Missing output files: step5/R1.part_035.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=035
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_035.fastq raw_data/R1/R1.part_035.fastq step5/R1.part_035.fastq
+Submitted job 99 with external jobid '49676.head1'.
+
+[Mon Dec  3 13:45:47 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_071.fastq, raw_data/R1/R1.part_071.fastq
+    output: step5/R1.part_071.fastq
+    jobid: 149
+    reason: Missing output files: step5/R1.part_071.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=071
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_071.fastq raw_data/R1/R1.part_071.fastq step5/R1.part_071.fastq
+Submitted job 149 with external jobid '49677.head1'.
+
+[Mon Dec  3 13:45:47 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_086.fastq, raw_data/R1/R1.part_086.fastq
+    output: step5/R1.part_086.fastq
+    jobid: 293
+    reason: Missing output files: step5/R1.part_086.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=086
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_086.fastq raw_data/R1/R1.part_086.fastq step5/R1.part_086.fastq
+Submitted job 293 with external jobid '49678.head1'.
+
+[Mon Dec  3 13:45:48 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_076.fastq, raw_data/R1/R1.part_076.fastq
+    output: step5/R1.part_076.fastq
+    jobid: 146
+    reason: Missing output files: step5/R1.part_076.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=076
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_076.fastq raw_data/R1/R1.part_076.fastq step5/R1.part_076.fastq
+Submitted job 146 with external jobid '49679.head1'.
+
+[Mon Dec  3 13:45:48 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_022.fastq, raw_data/R1/R1.part_022.fastq
+    output: step5/R1.part_022.fastq
+    jobid: 160
+    reason: Missing output files: step5/R1.part_022.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=022
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_022.fastq raw_data/R1/R1.part_022.fastq step5/R1.part_022.fastq
+Submitted job 160 with external jobid '49680.head1'.
+
+[Mon Dec  3 13:45:48 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_014.fastq, raw_data/R1/R1.part_014.fastq
+    output: step5/R1.part_014.fastq
+    jobid: 89
+    reason: Missing output files: step5/R1.part_014.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=014
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_014.fastq raw_data/R1/R1.part_014.fastq step5/R1.part_014.fastq
+Submitted job 89 with external jobid '49681.head1'.
+
+[Mon Dec  3 13:45:48 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_057.fastq, raw_data/R1/R1.part_057.fastq
+    output: step5/R1.part_057.fastq
+    jobid: 294
+    reason: Missing output files: step5/R1.part_057.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=057
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_057.fastq raw_data/R1/R1.part_057.fastq step5/R1.part_057.fastq
+Submitted job 294 with external jobid '49682.head1'.
+
+[Mon Dec  3 13:45:48 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_034.fastq, raw_data/R1/R1.part_034.fastq
+    output: step5/R1.part_034.fastq
+    jobid: 159
+    reason: Missing output files: step5/R1.part_034.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=034
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_034.fastq raw_data/R1/R1.part_034.fastq step5/R1.part_034.fastq
+Submitted job 159 with external jobid '49683.head1'.
+
+[Mon Dec  3 13:45:48 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_059.fastq, raw_data/R1/R1.part_059.fastq
+    output: step5/R1.part_059.fastq
+    jobid: 189
+    reason: Missing output files: step5/R1.part_059.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=059
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_059.fastq raw_data/R1/R1.part_059.fastq step5/R1.part_059.fastq
+Submitted job 189 with external jobid '49684.head1'.
+
+[Mon Dec  3 13:45:48 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_089.fastq, raw_data/R1/R1.part_089.fastq
+    output: step5/R1.part_089.fastq
+    jobid: 16
+    reason: Missing output files: step5/R1.part_089.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=089
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_089.fastq raw_data/R1/R1.part_089.fastq step5/R1.part_089.fastq
+Submitted job 16 with external jobid '49685.head1'.
+
+[Mon Dec  3 13:45:48 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_083.fastq, raw_data/R1/R1.part_083.fastq
+    output: step5/R1.part_083.fastq
+    jobid: 275
+    reason: Missing output files: step5/R1.part_083.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=083
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_083.fastq raw_data/R1/R1.part_083.fastq step5/R1.part_083.fastq
+Submitted job 275 with external jobid '49686.head1'.
+
+[Mon Dec  3 13:45:48 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_073.fastq, raw_data/R1/R1.part_073.fastq
+    output: step5/R1.part_073.fastq
+    jobid: 209
+    reason: Missing output files: step5/R1.part_073.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=073
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_073.fastq raw_data/R1/R1.part_073.fastq step5/R1.part_073.fastq
+Submitted job 209 with external jobid '49687.head1'.
+
+[Mon Dec  3 13:45:48 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_062.fastq, raw_data/R1/R1.part_062.fastq
+    output: step5/R1.part_062.fastq
+    jobid: 26
+    reason: Missing output files: step5/R1.part_062.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=062
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_062.fastq raw_data/R1/R1.part_062.fastq step5/R1.part_062.fastq
+Submitted job 26 with external jobid '49688.head1'.
+
+[Mon Dec  3 13:45:49 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_003.fastq, raw_data/R1/R1.part_003.fastq
+    output: step5/R1.part_003.fastq
+    jobid: 96
+    reason: Missing output files: step5/R1.part_003.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=003
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_003.fastq raw_data/R1/R1.part_003.fastq step5/R1.part_003.fastq
+Submitted job 96 with external jobid '49689.head1'.
+
+[Mon Dec  3 13:45:49 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_012.fastq, raw_data/R1/R1.part_012.fastq
+    output: step5/R1.part_012.fastq
+    jobid: 188
+    reason: Missing output files: step5/R1.part_012.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=012
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_012.fastq raw_data/R1/R1.part_012.fastq step5/R1.part_012.fastq
+Submitted job 188 with external jobid '49690.head1'.
+
+[Mon Dec  3 13:45:49 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_007.fastq, raw_data/R1/R1.part_007.fastq
+    output: step5/R1.part_007.fastq
+    jobid: 17
+    reason: Missing output files: step5/R1.part_007.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=007
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_007.fastq raw_data/R1/R1.part_007.fastq step5/R1.part_007.fastq
+Submitted job 17 with external jobid '49691.head1'.
+
+[Mon Dec  3 13:45:49 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_060.fastq, raw_data/R1/R1.part_060.fastq
+    output: step5/R1.part_060.fastq
+    jobid: 167
+    reason: Missing output files: step5/R1.part_060.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=060
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_060.fastq raw_data/R1/R1.part_060.fastq step5/R1.part_060.fastq
+Submitted job 167 with external jobid '49692.head1'.
+
+[Mon Dec  3 13:45:49 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_015.fastq, raw_data/R1/R1.part_015.fastq
+    output: step5/R1.part_015.fastq
+    jobid: 59
+    reason: Missing output files: step5/R1.part_015.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=015
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_015.fastq raw_data/R1/R1.part_015.fastq step5/R1.part_015.fastq
+Submitted job 59 with external jobid '49693.head1'.
+
+[Mon Dec  3 13:45:49 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_064.fastq, raw_data/R1/R1.part_064.fastq
+    output: step5/R1.part_064.fastq
+    jobid: 45
+    reason: Missing output files: step5/R1.part_064.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=064
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_064.fastq raw_data/R1/R1.part_064.fastq step5/R1.part_064.fastq
+Submitted job 45 with external jobid '49694.head1'.
+
+[Mon Dec  3 13:45:49 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_077.fastq, raw_data/R1/R1.part_077.fastq
+    output: step5/R1.part_077.fastq
+    jobid: 198
+    reason: Missing output files: step5/R1.part_077.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=077
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_077.fastq raw_data/R1/R1.part_077.fastq step5/R1.part_077.fastq
+Submitted job 198 with external jobid '49695.head1'.
+
+[Mon Dec  3 13:45:49 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_092.fastq, raw_data/R1/R1.part_092.fastq
+    output: step5/R1.part_092.fastq
+    jobid: 54
+    reason: Missing output files: step5/R1.part_092.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=092
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_092.fastq raw_data/R1/R1.part_092.fastq step5/R1.part_092.fastq
+Submitted job 54 with external jobid '49696.head1'.
+
+[Mon Dec  3 13:45:49 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_054.fastq, raw_data/R1/R1.part_054.fastq
+    output: step5/R1.part_054.fastq
+    jobid: 138
+    reason: Missing output files: step5/R1.part_054.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=054
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_054.fastq raw_data/R1/R1.part_054.fastq step5/R1.part_054.fastq
+Submitted job 138 with external jobid '49697.head1'.
+
+[Mon Dec  3 13:45:49 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_004.fastq, raw_data/R1/R1.part_004.fastq
+    output: step5/R1.part_004.fastq
+    jobid: 43
+    reason: Missing output files: step5/R1.part_004.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=004
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_004.fastq raw_data/R1/R1.part_004.fastq step5/R1.part_004.fastq
+Submitted job 43 with external jobid '49698.head1'.
+
+[Mon Dec  3 13:45:50 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_005.fastq, raw_data/R1/R1.part_005.fastq
+    output: step5/R1.part_005.fastq
+    jobid: 244
+    reason: Missing output files: step5/R1.part_005.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=005
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_005.fastq raw_data/R1/R1.part_005.fastq step5/R1.part_005.fastq
+Submitted job 244 with external jobid '49699.head1'.
+
+[Mon Dec  3 13:45:50 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_031.fastq, raw_data/R1/R1.part_031.fastq
+    output: step5/R1.part_031.fastq
+    jobid: 307
+    reason: Missing output files: step5/R1.part_031.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=031
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_031.fastq raw_data/R1/R1.part_031.fastq step5/R1.part_031.fastq
+Submitted job 307 with external jobid '49700.head1'.
+
+[Mon Dec  3 13:45:50 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_049.fastq, raw_data/R1/R1.part_049.fastq
+    output: step5/R1.part_049.fastq
+    jobid: 246
+    reason: Missing output files: step5/R1.part_049.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=049
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_049.fastq raw_data/R1/R1.part_049.fastq step5/R1.part_049.fastq
+Submitted job 246 with external jobid '49701.head1'.
+
+[Mon Dec  3 13:45:50 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_047.fastq, raw_data/R1/R1.part_047.fastq
+    output: step5/R1.part_047.fastq
+    jobid: 299
+    reason: Missing output files: step5/R1.part_047.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=047
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_047.fastq raw_data/R1/R1.part_047.fastq step5/R1.part_047.fastq
+Submitted job 299 with external jobid '49702.head1'.
+
+[Mon Dec  3 13:45:50 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_030.fastq, raw_data/R1/R1.part_030.fastq
+    output: step5/R1.part_030.fastq
+    jobid: 58
+    reason: Missing output files: step5/R1.part_030.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=030
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_030.fastq raw_data/R1/R1.part_030.fastq step5/R1.part_030.fastq
+Submitted job 58 with external jobid '49703.head1'.
+
+[Mon Dec  3 13:45:50 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_036.fastq, raw_data/R1/R1.part_036.fastq
+    output: step5/R1.part_036.fastq
+    jobid: 67
+    reason: Missing output files: step5/R1.part_036.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=036
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_036.fastq raw_data/R1/R1.part_036.fastq step5/R1.part_036.fastq
+Submitted job 67 with external jobid '49704.head1'.
+
+[Mon Dec  3 13:45:50 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_008.fastq, raw_data/R1/R1.part_008.fastq
+    output: step5/R1.part_008.fastq
+    jobid: 133
+    reason: Missing output files: step5/R1.part_008.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=008
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_008.fastq raw_data/R1/R1.part_008.fastq step5/R1.part_008.fastq
+Submitted job 133 with external jobid '49705.head1'.
+
+[Mon Dec  3 13:45:50 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_028.fastq, raw_data/R1/R1.part_028.fastq
+    output: step5/R1.part_028.fastq
+    jobid: 265
+    reason: Missing output files: step5/R1.part_028.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=028
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_028.fastq raw_data/R1/R1.part_028.fastq step5/R1.part_028.fastq
+Submitted job 265 with external jobid '49706.head1'.
+
+[Mon Dec  3 13:45:50 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_088.fastq, raw_data/R1/R1.part_088.fastq
+    output: step5/R1.part_088.fastq
+    jobid: 77
+    reason: Missing output files: step5/R1.part_088.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=088
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_088.fastq raw_data/R1/R1.part_088.fastq step5/R1.part_088.fastq
+Submitted job 77 with external jobid '49707.head1'.
+
+[Mon Dec  3 13:45:50 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_084.fastq, raw_data/R1/R1.part_084.fastq
+    output: step5/R1.part_084.fastq
+    jobid: 243
+    reason: Missing output files: step5/R1.part_084.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=084
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_084.fastq raw_data/R1/R1.part_084.fastq step5/R1.part_084.fastq
+Submitted job 243 with external jobid '49708.head1'.
+
+[Mon Dec  3 13:45:51 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_037.fastq, raw_data/R1/R1.part_037.fastq
+    output: step5/R1.part_037.fastq
+    jobid: 121
+    reason: Missing output files: step5/R1.part_037.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=037
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_037.fastq raw_data/R1/R1.part_037.fastq step5/R1.part_037.fastq
+Submitted job 121 with external jobid '49709.head1'.
+
+[Mon Dec  3 13:45:51 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_016.fastq, raw_data/R1/R1.part_016.fastq
+    output: step5/R1.part_016.fastq
+    jobid: 71
+    reason: Missing output files: step5/R1.part_016.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=016
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_016.fastq raw_data/R1/R1.part_016.fastq step5/R1.part_016.fastq
+Submitted job 71 with external jobid '49710.head1'.
+
+[Mon Dec  3 13:45:51 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_063.fastq, raw_data/R1/R1.part_063.fastq
+    output: step5/R1.part_063.fastq
+    jobid: 100
+    reason: Missing output files: step5/R1.part_063.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=063
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_063.fastq raw_data/R1/R1.part_063.fastq step5/R1.part_063.fastq
+Submitted job 100 with external jobid '49711.head1'.
+
+[Mon Dec  3 13:45:51 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_095.fastq, raw_data/R1/R1.part_095.fastq
+    output: step5/R1.part_095.fastq
+    jobid: 202
+    reason: Missing output files: step5/R1.part_095.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=095
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_095.fastq raw_data/R1/R1.part_095.fastq step5/R1.part_095.fastq
+Submitted job 202 with external jobid '49712.head1'.
+
+[Mon Dec  3 13:45:51 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_006.fastq, raw_data/R1/R1.part_006.fastq
+    output: step5/R1.part_006.fastq
+    jobid: 215
+    reason: Missing output files: step5/R1.part_006.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=006
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_006.fastq raw_data/R1/R1.part_006.fastq step5/R1.part_006.fastq
+Submitted job 215 with external jobid '49713.head1'.
+
+[Mon Dec  3 13:45:51 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_066.fastq, raw_data/R1/R1.part_066.fastq
+    output: step5/R1.part_066.fastq
+    jobid: 65
+    reason: Missing output files: step5/R1.part_066.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=066
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_066.fastq raw_data/R1/R1.part_066.fastq step5/R1.part_066.fastq
+Submitted job 65 with external jobid '49714.head1'.
+
+[Mon Dec  3 13:45:51 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_025.fastq, raw_data/R1/R1.part_025.fastq
+    output: step5/R1.part_025.fastq
+    jobid: 229
+    reason: Missing output files: step5/R1.part_025.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=025
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_025.fastq raw_data/R1/R1.part_025.fastq step5/R1.part_025.fastq
+Submitted job 229 with external jobid '49715.head1'.
+
+[Mon Dec  3 13:45:51 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_058.fastq, raw_data/R1/R1.part_058.fastq
+    output: step5/R1.part_058.fastq
+    jobid: 87
+    reason: Missing output files: step5/R1.part_058.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=058
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_058.fastq raw_data/R1/R1.part_058.fastq step5/R1.part_058.fastq
+Submitted job 87 with external jobid '49716.head1'.
+
+[Mon Dec  3 13:45:51 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_070.fastq, raw_data/R1/R1.part_070.fastq
+    output: step5/R1.part_070.fastq
+    jobid: 157
+    reason: Missing output files: step5/R1.part_070.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=070
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_070.fastq raw_data/R1/R1.part_070.fastq step5/R1.part_070.fastq
+Submitted job 157 with external jobid '49717.head1'.
+
+[Mon Dec  3 13:45:52 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_023.fastq, raw_data/R1/R1.part_023.fastq
+    output: step5/R1.part_023.fastq
+    jobid: 15
+    reason: Missing output files: step5/R1.part_023.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=023
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_023.fastq raw_data/R1/R1.part_023.fastq step5/R1.part_023.fastq
+Submitted job 15 with external jobid '49718.head1'.
+
+[Mon Dec  3 13:45:52 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_011.fastq, raw_data/R1/R1.part_011.fastq
+    output: step5/R1.part_011.fastq
+    jobid: 194
+    reason: Missing output files: step5/R1.part_011.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=011
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_011.fastq raw_data/R1/R1.part_011.fastq step5/R1.part_011.fastq
+Submitted job 194 with external jobid '49719.head1'.
+
+[Mon Dec  3 13:45:52 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_045.fastq, raw_data/R1/R1.part_045.fastq
+    output: step5/R1.part_045.fastq
+    jobid: 19
+    reason: Missing output files: step5/R1.part_045.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=045
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_045.fastq raw_data/R1/R1.part_045.fastq step5/R1.part_045.fastq
+Submitted job 19 with external jobid '49720.head1'.
+
+[Mon Dec  3 13:45:52 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_100.fastq, raw_data/R1/R1.part_100.fastq
+    output: step5/R1.part_100.fastq
+    jobid: 249
+    reason: Missing output files: step5/R1.part_100.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=100
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_100.fastq raw_data/R1/R1.part_100.fastq step5/R1.part_100.fastq
+Submitted job 249 with external jobid '49721.head1'.
+
+[Mon Dec  3 13:45:52 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_041.fastq, raw_data/R1/R1.part_041.fastq
+    output: step5/R1.part_041.fastq
+    jobid: 291
+    reason: Missing output files: step5/R1.part_041.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=041
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_041.fastq raw_data/R1/R1.part_041.fastq step5/R1.part_041.fastq
+Submitted job 291 with external jobid '49722.head1'.
+
+[Mon Dec  3 13:45:52 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_087.fastq, raw_data/R1/R1.part_087.fastq
+    output: step5/R1.part_087.fastq
+    jobid: 103
+    reason: Missing output files: step5/R1.part_087.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=087
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_087.fastq raw_data/R1/R1.part_087.fastq step5/R1.part_087.fastq
+Submitted job 103 with external jobid '49723.head1'.
+
+[Mon Dec  3 13:45:52 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_080.fastq, raw_data/R1/R1.part_080.fastq
+    output: step5/R1.part_080.fastq
+    jobid: 288
+    reason: Missing output files: step5/R1.part_080.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=080
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_080.fastq raw_data/R1/R1.part_080.fastq step5/R1.part_080.fastq
+Submitted job 288 with external jobid '49724.head1'.
+
+[Mon Dec  3 13:45:52 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_072.fastq, raw_data/R1/R1.part_072.fastq
+    output: step5/R1.part_072.fastq
+    jobid: 148
+    reason: Missing output files: step5/R1.part_072.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=072
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_072.fastq raw_data/R1/R1.part_072.fastq step5/R1.part_072.fastq
+Submitted job 148 with external jobid '49725.head1'.
+
+[Mon Dec  3 13:45:52 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_096.fastq, raw_data/R1/R1.part_096.fastq
+    output: step5/R1.part_096.fastq
+    jobid: 109
+    reason: Missing output files: step5/R1.part_096.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=096
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_096.fastq raw_data/R1/R1.part_096.fastq step5/R1.part_096.fastq
+Submitted job 109 with external jobid '49726.head1'.
+
+[Mon Dec  3 13:45:53 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_053.fastq, raw_data/R1/R1.part_053.fastq
+    output: step5/R1.part_053.fastq
+    jobid: 42
+    reason: Missing output files: step5/R1.part_053.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=053
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_053.fastq raw_data/R1/R1.part_053.fastq step5/R1.part_053.fastq
+Submitted job 42 with external jobid '49727.head1'.
+
+[Mon Dec  3 13:45:53 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_039.fastq, raw_data/R1/R1.part_039.fastq
+    output: step5/R1.part_039.fastq
+    jobid: 101
+    reason: Missing output files: step5/R1.part_039.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=039
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_039.fastq raw_data/R1/R1.part_039.fastq step5/R1.part_039.fastq
+Submitted job 101 with external jobid '49728.head1'.
+
+[Mon Dec  3 13:45:53 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_026.fastq, raw_data/R1/R1.part_026.fastq
+    output: step5/R1.part_026.fastq
+    jobid: 183
+    reason: Missing output files: step5/R1.part_026.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=026
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_026.fastq raw_data/R1/R1.part_026.fastq step5/R1.part_026.fastq
+Submitted job 183 with external jobid '49729.head1'.
+
+[Mon Dec  3 13:45:53 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_021.fastq, raw_data/R1/R1.part_021.fastq
+    output: step5/R1.part_021.fastq
+    jobid: 27
+    reason: Missing output files: step5/R1.part_021.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=021
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_021.fastq raw_data/R1/R1.part_021.fastq step5/R1.part_021.fastq
+Submitted job 27 with external jobid '49730.head1'.
+
+[Mon Dec  3 13:45:53 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_085.fastq, raw_data/R1/R1.part_085.fastq
+    output: step5/R1.part_085.fastq
+    jobid: 210
+    reason: Missing output files: step5/R1.part_085.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=085
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_085.fastq raw_data/R1/R1.part_085.fastq step5/R1.part_085.fastq
+Submitted job 210 with external jobid '49731.head1'.
+
+[Mon Dec  3 13:45:53 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_065.fastq, raw_data/R1/R1.part_065.fastq
+    output: step5/R1.part_065.fastq
+    jobid: 154
+    reason: Missing output files: step5/R1.part_065.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=065
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_065.fastq raw_data/R1/R1.part_065.fastq step5/R1.part_065.fastq
+Submitted job 154 with external jobid '49732.head1'.
+
+[Mon Dec  3 13:45:53 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_032.fastq, raw_data/R1/R1.part_032.fastq
+    output: step5/R1.part_032.fastq
+    jobid: 284
+    reason: Missing output files: step5/R1.part_032.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=032
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_032.fastq raw_data/R1/R1.part_032.fastq step5/R1.part_032.fastq
+Submitted job 284 with external jobid '49733.head1'.
+
+[Mon Dec  3 13:45:53 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_024.fastq, raw_data/R1/R1.part_024.fastq
+    output: step5/R1.part_024.fastq
+    jobid: 255
+    reason: Missing output files: step5/R1.part_024.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=024
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_024.fastq raw_data/R1/R1.part_024.fastq step5/R1.part_024.fastq
+Submitted job 255 with external jobid '49734.head1'.
+
+[Mon Dec  3 13:45:53 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_091.fastq, raw_data/R1/R1.part_091.fastq
+    output: step5/R1.part_091.fastq
+    jobid: 112
+    reason: Missing output files: step5/R1.part_091.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=091
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_091.fastq raw_data/R1/R1.part_091.fastq step5/R1.part_091.fastq
+Submitted job 112 with external jobid '49735.head1'.
+
+[Mon Dec  3 13:45:54 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_052.fastq, raw_data/R1/R1.part_052.fastq
+    output: step5/R1.part_052.fastq
+    jobid: 164
+    reason: Missing output files: step5/R1.part_052.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=052
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_052.fastq raw_data/R1/R1.part_052.fastq step5/R1.part_052.fastq
+Submitted job 164 with external jobid '49736.head1'.
+
+[Mon Dec  3 13:45:54 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_098.fastq, raw_data/R1/R1.part_098.fastq
+    output: step5/R1.part_098.fastq
+    jobid: 57
+    reason: Missing output files: step5/R1.part_098.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=098
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_098.fastq raw_data/R1/R1.part_098.fastq step5/R1.part_098.fastq
+Submitted job 57 with external jobid '49737.head1'.
+
+[Mon Dec  3 13:45:54 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_074.fastq, raw_data/R1/R1.part_074.fastq
+    output: step5/R1.part_074.fastq
+    jobid: 113
+    reason: Missing output files: step5/R1.part_074.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=074
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_074.fastq raw_data/R1/R1.part_074.fastq step5/R1.part_074.fastq
+Submitted job 113 with external jobid '49738.head1'.
+
+[Mon Dec  3 13:45:54 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_020.fastq, raw_data/R1/R1.part_020.fastq
+    output: step5/R1.part_020.fastq
+    jobid: 261
+    reason: Missing output files: step5/R1.part_020.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=020
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_020.fastq raw_data/R1/R1.part_020.fastq step5/R1.part_020.fastq
+Submitted job 261 with external jobid '49739.head1'.
+
+[Mon Dec  3 13:45:54 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_046.fastq, raw_data/R1/R1.part_046.fastq
+    output: step5/R1.part_046.fastq
+    jobid: 134
+    reason: Missing output files: step5/R1.part_046.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=046
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_046.fastq raw_data/R1/R1.part_046.fastq step5/R1.part_046.fastq
+Submitted job 134 with external jobid '49740.head1'.
+
+[Mon Dec  3 13:45:54 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_093.fastq, raw_data/R1/R1.part_093.fastq
+    output: step5/R1.part_093.fastq
+    jobid: 186
+    reason: Missing output files: step5/R1.part_093.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=093
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_093.fastq raw_data/R1/R1.part_093.fastq step5/R1.part_093.fastq
+Submitted job 186 with external jobid '49741.head1'.
+
+[Mon Dec  3 13:45:54 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_029.fastq, raw_data/R1/R1.part_029.fastq
+    output: step5/R1.part_029.fastq
+    jobid: 145
+    reason: Missing output files: step5/R1.part_029.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=029
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_029.fastq raw_data/R1/R1.part_029.fastq step5/R1.part_029.fastq
+Submitted job 145 with external jobid '49742.head1'.
+
+[Mon Dec  3 13:45:54 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_069.fastq, raw_data/R1/R1.part_069.fastq
+    output: step5/R1.part_069.fastq
+    jobid: 230
+    reason: Missing output files: step5/R1.part_069.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=069
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_069.fastq raw_data/R1/R1.part_069.fastq step5/R1.part_069.fastq
+Submitted job 230 with external jobid '49743.head1'.
+
+[Mon Dec  3 13:45:55 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_048.fastq, raw_data/R1/R1.part_048.fastq
+    output: step5/R1.part_048.fastq
+    jobid: 1
+    reason: Missing output files: step5/R1.part_048.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=048
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_048.fastq raw_data/R1/R1.part_048.fastq step5/R1.part_048.fastq
+Submitted job 1 with external jobid '49744.head1'.
+
+[Mon Dec  3 13:45:55 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_075.fastq, raw_data/R1/R1.part_075.fastq
+    output: step5/R1.part_075.fastq
+    jobid: 176
+    reason: Missing output files: step5/R1.part_075.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=075
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_075.fastq raw_data/R1/R1.part_075.fastq step5/R1.part_075.fastq
+Submitted job 176 with external jobid '49745.head1'.
+
+[Mon Dec  3 13:45:55 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_055.fastq, raw_data/R1/R1.part_055.fastq
+    output: step5/R1.part_055.fastq
+    jobid: 153
+    reason: Missing output files: step5/R1.part_055.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=055
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_055.fastq raw_data/R1/R1.part_055.fastq step5/R1.part_055.fastq
+Submitted job 153 with external jobid '49746.head1'.
+
+[Mon Dec  3 13:45:55 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_081.fastq, raw_data/R1/R1.part_081.fastq
+    output: step5/R1.part_081.fastq
+    jobid: 161
+    reason: Missing output files: step5/R1.part_081.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=081
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_081.fastq raw_data/R1/R1.part_081.fastq step5/R1.part_081.fastq
+Submitted job 161 with external jobid '49747.head1'.
+
+[Mon Dec  3 13:45:55 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_042.fastq, raw_data/R1/R1.part_042.fastq
+    output: step5/R1.part_042.fastq
+    jobid: 171
+    reason: Missing output files: step5/R1.part_042.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=042
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_042.fastq raw_data/R1/R1.part_042.fastq step5/R1.part_042.fastq
+Submitted job 171 with external jobid '49748.head1'.
+
+[Mon Dec  3 13:45:55 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_038.fastq, raw_data/R1/R1.part_038.fastq
+    output: step5/R1.part_038.fastq
+    jobid: 195
+    reason: Missing output files: step5/R1.part_038.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=038
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_038.fastq raw_data/R1/R1.part_038.fastq step5/R1.part_038.fastq
+Submitted job 195 with external jobid '49749.head1'.
+
+[Mon Dec  3 13:45:55 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_094.fastq, raw_data/R1/R1.part_094.fastq
+    output: step5/R1.part_094.fastq
+    jobid: 125
+    reason: Missing output files: step5/R1.part_094.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=094
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_094.fastq raw_data/R1/R1.part_094.fastq step5/R1.part_094.fastq
+Submitted job 125 with external jobid '49750.head1'.
+
+[Mon Dec  3 13:45:55 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_027.fastq, raw_data/R1/R1.part_027.fastq
+    output: step5/R1.part_027.fastq
+    jobid: 220
+    reason: Missing output files: step5/R1.part_027.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=027
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_027.fastq raw_data/R1/R1.part_027.fastq step5/R1.part_027.fastq
+Submitted job 220 with external jobid '49751.head1'.
+
+[Mon Dec  3 13:45:55 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_099.fastq, raw_data/R1/R1.part_099.fastq
+    output: step5/R1.part_099.fastq
+    jobid: 263
+    reason: Missing output files: step5/R1.part_099.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=099
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_099.fastq raw_data/R1/R1.part_099.fastq step5/R1.part_099.fastq
+Submitted job 263 with external jobid '49752.head1'.
+
+[Mon Dec  3 13:45:56 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_018.fastq, raw_data/R1/R1.part_018.fastq
+    output: step5/R1.part_018.fastq
+    jobid: 8
+    reason: Missing output files: step5/R1.part_018.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=018
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_018.fastq raw_data/R1/R1.part_018.fastq step5/R1.part_018.fastq
+Submitted job 8 with external jobid '49753.head1'.
+
+[Mon Dec  3 13:45:56 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_001.fastq, raw_data/R1/R1.part_001.fastq
+    output: step5/R1.part_001.fastq
+    jobid: 30
+    reason: Missing output files: step5/R1.part_001.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=001
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_001.fastq raw_data/R1/R1.part_001.fastq step5/R1.part_001.fastq
+Submitted job 30 with external jobid '49754.head1'.
+
+[Mon Dec  3 13:45:56 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_097.fastq, raw_data/R1/R1.part_097.fastq
+    output: step5/R1.part_097.fastq
+    jobid: 197
+    reason: Missing output files: step5/R1.part_097.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=097
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_097.fastq raw_data/R1/R1.part_097.fastq step5/R1.part_097.fastq
+Submitted job 197 with external jobid '49755.head1'.
+
+[Mon Dec  3 13:45:56 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_013.fastq, raw_data/R1/R1.part_013.fastq
+    output: step5/R1.part_013.fastq
+    jobid: 52
+    reason: Missing output files: step5/R1.part_013.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=013
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_013.fastq raw_data/R1/R1.part_013.fastq step5/R1.part_013.fastq
+Submitted job 52 with external jobid '49756.head1'.
+
+[Mon Dec  3 13:45:56 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_010.fastq, raw_data/R1/R1.part_010.fastq
+    output: step5/R1.part_010.fastq
+    jobid: 106
+    reason: Missing output files: step5/R1.part_010.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=010
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_010.fastq raw_data/R1/R1.part_010.fastq step5/R1.part_010.fastq
+Submitted job 106 with external jobid '49757.head1'.
+
+[Mon Dec  3 13:45:56 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_051.fastq, raw_data/R1/R1.part_051.fastq
+    output: step5/R1.part_051.fastq
+    jobid: 107
+    reason: Missing output files: step5/R1.part_051.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=051
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_051.fastq raw_data/R1/R1.part_051.fastq step5/R1.part_051.fastq
+Submitted job 107 with external jobid '49758.head1'.
+
+[Mon Dec  3 13:45:56 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_068.fastq, raw_data/R1/R1.part_068.fastq
+    output: step5/R1.part_068.fastq
+    jobid: 60
+    reason: Missing output files: step5/R1.part_068.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=068
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_068.fastq raw_data/R1/R1.part_068.fastq step5/R1.part_068.fastq
+Submitted job 60 with external jobid '49759.head1'.
+
+[Mon Dec  3 13:45:56 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_061.fastq, raw_data/R1/R1.part_061.fastq
+    output: step5/R1.part_061.fastq
+    jobid: 132
+    reason: Missing output files: step5/R1.part_061.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=061
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_061.fastq raw_data/R1/R1.part_061.fastq step5/R1.part_061.fastq
+Submitted job 132 with external jobid '49760.head1'.
+
+[Mon Dec  3 13:45:56 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_002.fastq, raw_data/R1/R1.part_002.fastq
+    output: step5/R1.part_002.fastq
+    jobid: 126
+    reason: Missing output files: step5/R1.part_002.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=002
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_002.fastq raw_data/R1/R1.part_002.fastq step5/R1.part_002.fastq
+Submitted job 126 with external jobid '49761.head1'.
+
+[Mon Dec  3 13:45:57 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_019.fastq, raw_data/R1/R1.part_019.fastq
+    output: step5/R1.part_019.fastq
+    jobid: 268
+    reason: Missing output files: step5/R1.part_019.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=019
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_019.fastq raw_data/R1/R1.part_019.fastq step5/R1.part_019.fastq
+Submitted job 268 with external jobid '49762.head1'.
+
+[Mon Dec  3 13:45:57 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_017.fastq, raw_data/R1/R1.part_017.fastq
+    output: step5/R1.part_017.fastq
+    jobid: 274
+    reason: Missing output files: step5/R1.part_017.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=017
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_017.fastq raw_data/R1/R1.part_017.fastq step5/R1.part_017.fastq
+Submitted job 274 with external jobid '49763.head1'.
+
+[Mon Dec  3 13:45:57 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_050.fastq, raw_data/R1/R1.part_050.fastq
+    output: step5/R1.part_050.fastq
+    jobid: 104
+    reason: Missing output files: step5/R1.part_050.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=050
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_050.fastq raw_data/R1/R1.part_050.fastq step5/R1.part_050.fastq
+Submitted job 104 with external jobid '49764.head1'.
+
+[Mon Dec  3 13:45:57 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_067.fastq, raw_data/R1/R1.part_067.fastq
+    output: step5/R1.part_067.fastq
+    jobid: 233
+    reason: Missing output files: step5/R1.part_067.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=067
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_067.fastq raw_data/R1/R1.part_067.fastq step5/R1.part_067.fastq
+Submitted job 233 with external jobid '49765.head1'.
+
+[Mon Dec  3 13:45:57 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_082.fastq, raw_data/R1/R1.part_082.fastq
+    output: step5/R1.part_082.fastq
+    jobid: 151
+    reason: Missing output files: step5/R1.part_082.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=082
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_082.fastq raw_data/R1/R1.part_082.fastq step5/R1.part_082.fastq
+Submitted job 151 with external jobid '49766.head1'.
+
+[Mon Dec  3 13:45:57 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_090.fastq, raw_data/R1/R1.part_090.fastq
+    output: step5/R1.part_090.fastq
+    jobid: 122
+    reason: Missing output files: step5/R1.part_090.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=090
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_090.fastq raw_data/R1/R1.part_090.fastq step5/R1.part_090.fastq
+Submitted job 122 with external jobid '49767.head1'.
+
+[Mon Dec  3 13:45:57 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_044.fastq, raw_data/R1/R1.part_044.fastq
+    output: step5/R1.part_044.fastq
+    jobid: 298
+    reason: Missing output files: step5/R1.part_044.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=044
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_044.fastq raw_data/R1/R1.part_044.fastq step5/R1.part_044.fastq
+Submitted job 298 with external jobid '49768.head1'.
+[Mon Dec  3 13:46:16 2018]
+Finished job 217.
+1 of 110 steps (0.91%) done
+[Mon Dec  3 13:46:16 2018]
+Finished job 239.
+2 of 110 steps (2%) done
+[Mon Dec  3 13:46:16 2018]
+Finished job 260.
+3 of 110 steps (3%) done
+[Mon Dec  3 13:46:16 2018]
+Finished job 72.
+4 of 110 steps (4%) done
+[Mon Dec  3 13:46:16 2018]
+Finished job 74.
+5 of 110 steps (5%) done
+[Mon Dec  3 13:46:16 2018]
+Finished job 70.
+6 of 110 steps (5%) done
+[Mon Dec  3 13:46:16 2018]
+Finished job 135.
+7 of 110 steps (6%) done
+
+[Mon Dec  3 13:46:16 2018]
+rule R1_clean_cell_selected:
+    input: step4/whitelist.txt, step3/R2.part_079.fastq, raw_data/R1/R1.part_079.fastq
+    output: step5/R1.part_079.fastq
+    jobid: 4
+    reason: Missing output files: step5/R1.part_079.fastq; Updated input files: step4/whitelist.txt
+    wildcards: part=079
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/python script/3.extract_R1_base_selcell_and_clean_R2.py step4/whitelist.txt step3/R2.part_079.fastq raw_data/R1/R1.part_079.fastq step5/R1.part_079.fastq
+Submitted job 4 with external jobid '49769.head1'.
+[Mon Dec  3 13:46:17 2018]
+Finished job 99.
+8 of 110 steps (7%) done
+[Mon Dec  3 13:46:17 2018]
+Finished job 149.
+9 of 110 steps (8%) done
+[Mon Dec  3 13:46:17 2018]
+Finished job 293.
+10 of 110 steps (9%) done
+[Mon Dec  3 13:46:17 2018]
+Finished job 146.
+11 of 110 steps (10%) done
+[Mon Dec  3 13:46:17 2018]
+Finished job 160.
+12 of 110 steps (11%) done
+[Mon Dec  3 13:46:17 2018]
+Finished job 89.
+13 of 110 steps (12%) done
+[Mon Dec  3 13:46:17 2018]
+Finished job 294.
+14 of 110 steps (13%) done
+[Mon Dec  3 13:46:17 2018]
+Finished job 159.
+15 of 110 steps (14%) done
+[Mon Dec  3 13:46:17 2018]
+Finished job 189.
+16 of 110 steps (15%) done
+[Mon Dec  3 13:46:17 2018]
+Finished job 16.
+17 of 110 steps (15%) done
+[Mon Dec  3 13:46:18 2018]
+Finished job 275.
+18 of 110 steps (16%) done
+[Mon Dec  3 13:46:18 2018]
+Finished job 209.
+19 of 110 steps (17%) done
+[Mon Dec  3 13:46:18 2018]
+Finished job 26.
+20 of 110 steps (18%) done
+[Mon Dec  3 13:46:18 2018]
+Finished job 96.
+21 of 110 steps (19%) done
+[Mon Dec  3 13:46:18 2018]
+Finished job 188.
+22 of 110 steps (20%) done
+[Mon Dec  3 13:46:18 2018]
+Finished job 17.
+23 of 110 steps (21%) done
+[Mon Dec  3 13:46:18 2018]
+Finished job 167.
+24 of 110 steps (22%) done
+[Mon Dec  3 13:46:18 2018]
+Finished job 59.
+25 of 110 steps (23%) done
+[Mon Dec  3 13:46:18 2018]
+Finished job 45.
+26 of 110 steps (24%) done
+[Mon Dec  3 13:46:18 2018]
+Finished job 198.
+27 of 110 steps (25%) done
+[Mon Dec  3 13:46:19 2018]
+Finished job 54.
+28 of 110 steps (25%) done
+[Mon Dec  3 13:46:19 2018]
+Finished job 138.
+29 of 110 steps (26%) done
+[Mon Dec  3 13:46:19 2018]
+Finished job 43.
+30 of 110 steps (27%) done
+[Mon Dec  3 13:46:19 2018]
+Finished job 244.
+31 of 110 steps (28%) done
+[Mon Dec  3 13:46:19 2018]
+Finished job 307.
+32 of 110 steps (29%) done
+[Mon Dec  3 13:46:19 2018]
+Finished job 246.
+33 of 110 steps (30%) done
+[Mon Dec  3 13:46:19 2018]
+Finished job 299.
+34 of 110 steps (31%) done
+[Mon Dec  3 13:46:36 2018]
+Finished job 58.
+35 of 110 steps (32%) done
+[Mon Dec  3 13:46:36 2018]
+Finished job 67.
+36 of 110 steps (33%) done
+[Mon Dec  3 13:46:36 2018]
+Finished job 133.
+37 of 110 steps (34%) done
+[Mon Dec  3 13:46:36 2018]
+Finished job 265.
+38 of 110 steps (35%) done
+[Mon Dec  3 13:46:36 2018]
+Finished job 77.
+39 of 110 steps (35%) done
+[Mon Dec  3 13:46:36 2018]
+Finished job 243.
+40 of 110 steps (36%) done
+[Mon Dec  3 13:46:37 2018]
+Finished job 121.
+41 of 110 steps (37%) done
+[Mon Dec  3 13:46:37 2018]
+Finished job 71.
+42 of 110 steps (38%) done
+[Mon Dec  3 13:46:37 2018]
+Finished job 100.
+43 of 110 steps (39%) done
+[Mon Dec  3 13:46:37 2018]
+Finished job 202.
+44 of 110 steps (40%) done
+[Mon Dec  3 13:46:37 2018]
+Finished job 215.
+45 of 110 steps (41%) done
+[Mon Dec  3 13:46:37 2018]
+Finished job 65.
+46 of 110 steps (42%) done
+[Mon Dec  3 13:46:37 2018]
+Finished job 229.
+47 of 110 steps (43%) done
+[Mon Dec  3 13:46:37 2018]
+Finished job 87.
+48 of 110 steps (44%) done
+[Mon Dec  3 13:46:37 2018]
+Finished job 157.
+49 of 110 steps (45%) done
+[Mon Dec  3 13:46:37 2018]
+Finished job 15.
+50 of 110 steps (45%) done
+[Mon Dec  3 13:46:38 2018]
+Finished job 194.
+51 of 110 steps (46%) done
+[Mon Dec  3 13:46:38 2018]
+Finished job 19.
+52 of 110 steps (47%) done
+[Mon Dec  3 13:46:38 2018]
+Finished job 249.
+53 of 110 steps (48%) done
+[Mon Dec  3 13:46:38 2018]
+Finished job 291.
+54 of 110 steps (49%) done
+[Mon Dec  3 13:46:38 2018]
+Finished job 103.
+55 of 110 steps (50%) done
+[Mon Dec  3 13:46:38 2018]
+Finished job 288.
+56 of 110 steps (51%) done
+[Mon Dec  3 13:46:38 2018]
+Finished job 148.
+57 of 110 steps (52%) done
+[Mon Dec  3 13:46:38 2018]
+Finished job 109.
+58 of 110 steps (53%) done
+[Mon Dec  3 13:46:38 2018]
+Finished job 42.
+59 of 110 steps (54%) done
+[Mon Dec  3 13:46:38 2018]
+Finished job 101.
+60 of 110 steps (55%) done
+[Mon Dec  3 13:46:39 2018]
+Finished job 183.
+61 of 110 steps (55%) done
+[Mon Dec  3 13:46:39 2018]
+Finished job 27.
+62 of 110 steps (56%) done
+[Mon Dec  3 13:46:39 2018]
+Finished job 210.
+63 of 110 steps (57%) done
+[Mon Dec  3 13:46:39 2018]
+Finished job 154.
+64 of 110 steps (58%) done
+[Mon Dec  3 13:46:39 2018]
+Finished job 284.
+65 of 110 steps (59%) done
+[Mon Dec  3 13:46:39 2018]
+Finished job 255.
+66 of 110 steps (60%) done
+[Mon Dec  3 13:46:39 2018]
+Finished job 112.
+67 of 110 steps (61%) done
+[Mon Dec  3 13:46:39 2018]
+Finished job 164.
+68 of 110 steps (62%) done
+[Mon Dec  3 13:47:07 2018]
+Finished job 8.
+69 of 110 steps (63%) done
+[Mon Dec  3 13:47:07 2018]
+Finished job 30.
+70 of 110 steps (64%) done
+[Mon Dec  3 13:47:07 2018]
+Finished job 197.
+71 of 110 steps (65%) done
+[Mon Dec  3 13:47:07 2018]
+Finished job 52.
+72 of 110 steps (65%) done
+[Mon Dec  3 13:47:07 2018]
+Finished job 106.
+73 of 110 steps (66%) done
+[Mon Dec  3 13:47:07 2018]
+Finished job 107.
+74 of 110 steps (67%) done
+[Mon Dec  3 13:47:07 2018]
+Finished job 60.
+75 of 110 steps (68%) done
+[Mon Dec  3 13:47:07 2018]
+Finished job 132.
+76 of 110 steps (69%) done
+[Mon Dec  3 13:47:07 2018]
+Finished job 126.
+77 of 110 steps (70%) done
+[Mon Dec  3 13:47:07 2018]
+Finished job 268.
+78 of 110 steps (71%) done
+[Mon Dec  3 13:47:08 2018]
+Finished job 274.
+79 of 110 steps (72%) done
+[Mon Dec  3 13:47:08 2018]
+Finished job 104.
+80 of 110 steps (73%) done
+[Mon Dec  3 13:47:08 2018]
+Finished job 233.
+81 of 110 steps (74%) done
+[Mon Dec  3 13:47:18 2018]
+Finished job 4.
+82 of 110 steps (75%) done
+[Mon Dec  3 13:47:18 2018]
+Finished job 151.
+83 of 110 steps (75%) done
+[Mon Dec  3 13:47:18 2018]
+Finished job 122.
+84 of 110 steps (76%) done
+[Mon Dec  3 13:47:18 2018]
+Finished job 298.
+85 of 110 steps (77%) done
+[Mon Dec  3 13:47:18 2018]
+Finished job 57.
+86 of 110 steps (78%) done
+[Mon Dec  3 13:47:18 2018]
+Finished job 113.
+87 of 110 steps (79%) done
+[Mon Dec  3 13:47:18 2018]
+Finished job 261.
+88 of 110 steps (80%) done
+[Mon Dec  3 13:47:18 2018]
+Finished job 134.
+89 of 110 steps (81%) done
+[Mon Dec  3 13:47:19 2018]
+Finished job 186.
+90 of 110 steps (82%) done
+[Mon Dec  3 13:47:19 2018]
+Finished job 145.
+91 of 110 steps (83%) done
+[Mon Dec  3 13:47:19 2018]
+Finished job 230.
+92 of 110 steps (84%) done
+[Mon Dec  3 13:47:19 2018]
+Finished job 1.
+93 of 110 steps (85%) done
+[Mon Dec  3 13:47:19 2018]
+Finished job 176.
+94 of 110 steps (85%) done
+[Mon Dec  3 13:47:19 2018]
+Finished job 153.
+95 of 110 steps (86%) done
+[Mon Dec  3 13:47:20 2018]
+Finished job 161.
+96 of 110 steps (87%) done
+[Mon Dec  3 13:47:20 2018]
+Finished job 171.
+97 of 110 steps (88%) done
+[Mon Dec  3 13:47:20 2018]
+Finished job 195.
+98 of 110 steps (89%) done
+[Mon Dec  3 13:47:20 2018]
+Finished job 125.
+99 of 110 steps (90%) done
+[Mon Dec  3 13:47:20 2018]
+Finished job 220.
+100 of 110 steps (91%) done
+[Mon Dec  3 13:47:20 2018]
+Finished job 263.
+101 of 110 steps (92%) done
+
+[Mon Dec  3 13:47:20 2018]
+rule merge_part_R1:
+    input: step5/R1.part_001.fastq, step5/R1.part_002.fastq, step5/R1.part_003.fastq, step5/R1.part_004.fastq, step5/R1.part_005.fastq, step5/R1.part_006.fastq, step5/R1.part_007.fastq, step5/R1.part_008.fastq, step5/R1.part_009.fastq, step5/R1.part_010.fastq, step5/R1.part_011.fastq, step5/R1.part_012.fastq, step5/R1.part_013.fastq, step5/R1.part_014.fastq, step5/R1.part_015.fastq, step5/R1.part_016.fastq, step5/R1.part_017.fastq, step5/R1.part_018.fastq, step5/R1.part_019.fastq, step5/R1.part_020.fastq, step5/R1.part_021.fastq, step5/R1.part_022.fastq, step5/R1.part_023.fastq, step5/R1.part_024.fastq, step5/R1.part_025.fastq, step5/R1.part_026.fastq, step5/R1.part_027.fastq, step5/R1.part_028.fastq, step5/R1.part_029.fastq, step5/R1.part_030.fastq, step5/R1.part_031.fastq, step5/R1.part_032.fastq, step5/R1.part_033.fastq, step5/R1.part_034.fastq, step5/R1.part_035.fastq, step5/R1.part_036.fastq, step5/R1.part_037.fastq, step5/R1.part_038.fastq, step5/R1.part_039.fastq, step5/R1.part_040.fastq, step5/R1.part_041.fastq, step5/R1.part_042.fastq, step5/R1.part_043.fastq, step5/R1.part_044.fastq, step5/R1.part_045.fastq, step5/R1.part_046.fastq, step5/R1.part_047.fastq, step5/R1.part_048.fastq, step5/R1.part_049.fastq, step5/R1.part_050.fastq, step5/R1.part_051.fastq, step5/R1.part_052.fastq, step5/R1.part_053.fastq, step5/R1.part_054.fastq, step5/R1.part_055.fastq, step5/R1.part_056.fastq, step5/R1.part_057.fastq, step5/R1.part_058.fastq, step5/R1.part_059.fastq, step5/R1.part_060.fastq, step5/R1.part_061.fastq, step5/R1.part_062.fastq, step5/R1.part_063.fastq, step5/R1.part_064.fastq, step5/R1.part_065.fastq, step5/R1.part_066.fastq, step5/R1.part_067.fastq, step5/R1.part_068.fastq, step5/R1.part_069.fastq, step5/R1.part_070.fastq, step5/R1.part_071.fastq, step5/R1.part_072.fastq, step5/R1.part_073.fastq, step5/R1.part_074.fastq, step5/R1.part_075.fastq, step5/R1.part_076.fastq, step5/R1.part_077.fastq, step5/R1.part_078.fastq, step5/R1.part_079.fastq, step5/R1.part_080.fastq, step5/R1.part_081.fastq, step5/R1.part_082.fastq, step5/R1.part_083.fastq, step5/R1.part_084.fastq, step5/R1.part_085.fastq, step5/R1.part_086.fastq, step5/R1.part_087.fastq, step5/R1.part_088.fastq, step5/R1.part_089.fastq, step5/R1.part_090.fastq, step5/R1.part_091.fastq, step5/R1.part_092.fastq, step5/R1.part_093.fastq, step5/R1.part_094.fastq, step5/R1.part_095.fastq, step5/R1.part_096.fastq, step5/R1.part_097.fastq, step5/R1.part_098.fastq, step5/R1.part_099.fastq, step5/R1.part_100.fastq
+    output: step5/R1_extract_ubc.fastq
+    jobid: 313
+    reason: Missing output files: step5/R1_extract_ubc.fastq; Input files updated by another job: step5/R1.part_048.fastq, step5/R1.part_012.fastq, step5/R1.part_059.fastq, step5/R1.part_088.fastq, step5/R1.part_053.fastq, step5/R1.part_099.fastq, step5/R1.part_037.fastq, step5/R1.part_028.fastq, step5/R1.part_079.fastq, step5/R1.part_090.fastq, step5/R1.part_004.fastq, step5/R1.part_019.fastq, step5/R1.part_064.fastq, step5/R1.part_070.fastq, step5/R1.part_018.fastq, step5/R1.part_011.fastq, step5/R1.part_025.fastq, step5/R1.part_034.fastq, step5/R1.part_022.fastq, step5/R1.part_069.fastq, step5/R1.part_081.fastq, step5/R1.part_038.fastq, step5/R1.part_058.fastq, step5/R1.part_094.fastq, step5/R1.part_017.fastq, step5/R1.part_052.fastq, step5/R1.part_014.fastq, step5/R1.part_067.fastq, step5/R1.part_083.fastq, step5/R1.part_002.fastq, step5/R1.part_097.fastq, step5/R1.part_077.fastq, step5/R1.part_032.fastq, step5/R1.part_013.fastq, step5/R1.part_061.fastq, step5/R1.part_008.fastq, step5/R1.part_060.fastq, step5/R1.part_046.fastq, step5/R1.part_092.fastq, step5/R1.part_095.fastq, step5/R1.part_078.fastq, step5/R1.part_023.fastq, step5/R1.part_054.fastq, step5/R1.part_089.fastq, step5/R1.part_098.fastq, step5/R1.part_007.fastq, step5/R1.part_030.fastq, step5/R1.part_080.fastq, step5/R1.part_073.fastq, step5/R1.part_085.fastq, step5/R1.part_084.fastq, step5/R1.part_045.fastq, step5/R1.part_003.fastq, step5/R1.part_015.fastq, step5/R1.part_041.fastq, step5/R1.part_042.fastq, step5/R1.part_062.fastq, step5/R1.part_035.fastq, step5/R1.part_005.fastq, step5/R1.part_063.fastq, step5/R1.part_068.fastq, step5/R1.part_086.fastq, step5/R1.part_039.fastq, step5/R1.part_049.fastq, step5/R1.part_057.fastq, step5/R1.part_021.fastq, step5/R1.part_087.fastq, step5/R1.part_100.fastq, step5/R1.part_075.fastq, step5/R1.part_006.fastq, step5/R1.part_050.fastq, step5/R1.part_029.fastq, step5/R1.part_066.fastq, step5/R1.part_001.fastq, step5/R1.part_076.fastq, step5/R1.part_044.fastq, step5/R1.part_010.fastq, step5/R1.part_047.fastq, step5/R1.part_051.fastq, step5/R1.part_093.fastq, step5/R1.part_072.fastq, step5/R1.part_071.fastq, step5/R1.part_040.fastq, step5/R1.part_036.fastq, step5/R1.part_024.fastq, step5/R1.part_096.fastq, step5/R1.part_043.fastq, step5/R1.part_091.fastq, step5/R1.part_016.fastq, step5/R1.part_082.fastq, step5/R1.part_026.fastq, step5/R1.part_009.fastq, step5/R1.part_031.fastq, step5/R1.part_074.fastq, step5/R1.part_027.fastq, step5/R1.part_033.fastq, step5/R1.part_056.fastq, step5/R1.part_020.fastq, step5/R1.part_055.fastq, step5/R1.part_065.fastq
+
+cat step5/R1.part*.fastq > step5/R1_extract_ubc.fastq
+Submitted job 313 with external jobid '49770.head1'.
+[Mon Dec  3 13:47:40 2018]
+Finished job 313.
+102 of 110 steps (93%) done
+
+[Mon Dec  3 13:47:40 2018]
+rule trimmomatic:
+    input: step5/R1_extract_ubc.fastq
+    output: step5/R1_extract_ubc_clean.fastq
+    jobid: 312
+    reason: Missing output files: step5/R1_extract_ubc_clean.fastq; Input files updated by another job: step5/R1_extract_ubc.fastq
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/trimmomatic SE -threads 30 -phred33 step5/R1_extract_ubc.fastq step5/R1_extract_ubc_clean.fastq  ILLUMINACLIP:/cluster/home/lpeng/projects/genome/adapter.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+Submitted job 312 with external jobid '49771.head1'.
+[Mon Dec  3 13:48:10 2018]
+Finished job 312.
+103 of 110 steps (94%) done
+
+[Mon Dec  3 13:48:10 2018]
+rule cutadapter:
+    input: step5/R1_extract_ubc_clean.fastq
+    output: step5/R1_clean.fastq, step5/R1_clean.cutadapter.log
+    jobid: 311
+    reason: Missing output files: step5/R1_clean.fastq; Input files updated by another job: step5/R1_extract_ubc_clean.fastq
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/cutadapt -a "NNNNNNNNCGAATGCTCTGGCCT;max_error_rate=0.1;min_overlap=23" -a "AAAAAAAA;min_overlap=6;" -a "CGAATGCTCTGGCCT;max_error_rate=0.1" --minimum-length 36 step5/R1_extract_ubc_clean.fastq -o step5/R1_clean.fastq -j 30 1> step5/R1_clean.cutadapter.log
+Submitted job 311 with external jobid '49772.head1'.
+[Mon Dec  3 13:48:41 2018]
+Finished job 311.
+104 of 110 steps (95%) done
+
+[Mon Dec  3 13:48:41 2018]
+rule STAR:
+    input: step5/R1_clean.fastq
+    output: step6/map_Aligned.sortedByCoord.out.bam, step6/map_
+    jobid: 310
+    reason: Input files updated by another job: step5/R1_clean.fastq
+
+touch step6/map_;/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/STAR --runThreadN 30  --genomeDir /cluster/home/lpeng/projects/genome/hg38_mm10/hg38_mm10_index_hang65/ --readFilesIn step5/R1_clean.fastq --outFileNamePrefix step6/map_ --outSAMtype BAM SortedByCoordinate
+Submitted job 310 with external jobid '49773.head1'.
+[Mon Dec  3 13:50:11 2018]
+Finished job 310.
+105 of 110 steps (95%) done
+
+[Mon Dec  3 13:50:11 2018]
+rule select_primary_to_bed:
+    input: step6/map_Aligned.sortedByCoord.out.bam
+    output: step6/map_primary.bam
+    jobid: 309
+    reason: Missing output files: step6/map_primary.bam; Input files updated by another job: step6/map_Aligned.sortedByCoord.out.bam
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/samtools view -@ 30 -F 256 -h step6/map_Aligned.sortedByCoord.out.bam -b > step6/map_primary.bam
+Submitted job 309 with external jobid '49774.head1'.
+[Mon Dec  3 13:50:51 2018]
+Finished job 309.
+106 of 110 steps (96%) done
+
+[Mon Dec  3 13:50:51 2018]
+rule Tag_gene:
+    input: step6/map_primary.bam
+    output: step6/Tag.bam, step6/Tag_Reads_gene.tsv, step6/read_to_gene.tsv
+    jobid: 231
+    reason: Missing output files: step6/read_to_gene.tsv; Input files updated by another job: step6/map_primary.bam
+
+sh script/geneRead_bam_to_tsv.sh step6/map_primary.bam step6/Tag.bam /cluster/home/lpeng/projects/genome/hg38_mm10/hg38_mm10_gene_name_replaced.94.gtf step6/Tag_Reads_gene.tsv step6/read_to_gene.tsv
+Submitted job 231 with external jobid '49775.head1'.
+[Mon Dec  3 13:54:11 2018]
+Finished job 231.
+107 of 110 steps (97%) done
+
+[Mon Dec  3 13:54:11 2018]
+rule cell_gene_mat:
+    input: step6/read_to_gene.tsv
+    output: step7/UMI+UBC_seq, step7/UMI_UBC_seq_cluster, step7/UMI_UBC_gene.tsv, step7/UMI_UBC_gene1, step7/UMI_UBC_gene2, step7/cell_gene_count.tsv, step7/cell_gene_mat.tsv
+    jobid: 289
+    reason: Missing output files: step7/cell_gene_mat.tsv; Input files updated by another job: step6/read_to_gene.tsv
+
+sh script/GeneRead_to_mat.sh step6/read_to_gene.tsv step7/UMI+UBC_seq step7/UMI_UBC_seq_cluster step7/UMI_UBC_gene.tsv step7/UMI_UBC_gene1 step7/UMI_UBC_gene2 step7/cell_gene_count.tsv step7/cell_gene_mat.tsv /cluster/home/lpeng/projects/5.JSK_SC_20181113/Snakepipe/barcode/barcode.fa
+Submitted job 289 with external jobid '49776.head1'.
+[Mon Dec  3 13:54:41 2018]
+Finished job 289.
+108 of 110 steps (98%) done
+
+[Mon Dec  3 13:54:41 2018]
+rule plot:
+    input: step7/cell_gene_mat.tsv
+    output: figure/Hg_vs_MM_sp_gene_umi.pdf
+    jobid: 152
+    reason: Missing output files: figure/Hg_vs_MM_sp_gene_umi.pdf; Input files updated by another job: step7/cell_gene_mat.tsv
+
+/cluster/home/lpeng/software/miniconda3/envs/Scell/bin/R script/cell_gene_UMI_QC.R config.yaml step7/cell_gene_mat.tsv
+Submitted job 152 with external jobid '49777.head1'.
+[Mon Dec  3 13:54:51 2018]
+Error in rule plot:
+    jobid: 152
+    output: figure/Hg_vs_MM_sp_gene_umi.pdf
+    cluster_jobid: 49777.head1
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /cluster/home/lpeng/projects/5.JSK_SC_20181113/Snakepipe/.snakemake/log/2018-12-03T134544.360267.snakemake.log

@@ -1,0 +1,1 @@
+TagReadWithGeneFunction INPUT=$1 OUTPUT=$2 ANNOTATIONS_FILE=$3 && samtools view $2|grep -v "XF:Z:INTERGENIC" |awk -v OFS="\t" '{if($2==16)print $1,"-",$12,$17,$18,$19;else print $1,"+",$12,$17,$18,$19}'|sed 's/..:Z://g'|sed 's/UTR/CODING/g' > $4 && python script/4.Read_to_GENE.py $4 > $5

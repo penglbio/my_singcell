@@ -1,0 +1,28 @@
+species: human_vs_mouse
+
+seq_info:
+  type: singlecell
+  mode: Split_seq
+
+path: /cluster/home/lpeng/projects/5.JSK_SC_20181113/Snakepipe/raw_data 
+
+sample: test312
+
+split_part: 101
+split_part1: 100
+
+cpu: 30
+
+cell_num: 1000
+
+Rscript_path: /cluster/home/lpeng/software/miniconda3/envs/Scell/bin/Rscript
+
+conda_path: /cluster/home/lpeng/software/miniconda3/envs/Scell/bin
+
+adapter: /cluster/home/lpeng/projects/genome/adapter.fa
+
+index: /cluster/home/lpeng/projects/genome/hg38_mm10/hg38_mm10_index_hang65/
+
+gtf: /cluster/home/lpeng/projects/genome/hg38_mm10/hg38_mm10_gene_name_replaced.94.gtf
+
+barcode: /cluster/home/lpeng/projects/5.JSK_SC_20181113/Snakepipe/barcode/barcode.fa
