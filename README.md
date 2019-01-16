@@ -10,7 +10,7 @@ This is a Split-seq Scell Data analysis method. This pipeline can process the ov
   
     then run:
     
-           `
+           ```
            init.sh to initialize the directy and environment. 
-           `    
+           ```   
     
