@@ -3,10 +3,13 @@ This is a Split-seq Scell Data analysis method. This pipeline can process the ov
 <http://science.sciencemag.org/content/360/6385/176.full>
 
 ##Useage:
+
     first step:
           files perpare: raw fastq files and barcode file
           change your paire-end fastq files name to R1.fastq(R1) and R2.fastq(R2)
+  
     then run:
+    
            `
            init.sh to initialize the directy and environment. 
            `    
